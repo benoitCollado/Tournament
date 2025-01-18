@@ -1,0 +1,11 @@
+{% extends 'generics/base.html' %}
+
+{% block content %}
+<h2>{{post.title}}</h2>
+<p>{{post.content}}</p>
+
+<p>date publication : {{post.pub_date|date:"Y-m-d"}}</p>
+{% if post.pub_date < post.updated_date %}
+<p>date modification : {{post.mod_date|date:"Y-m-d"}}</p>
+{% endif %}
+{% endblock %}

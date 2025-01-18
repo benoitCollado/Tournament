@@ -1,0 +1,19 @@
+{% extends 'generics/base.html' %}
+
+{% block content %}
+<h2>Derniers Billets de Blogs</h2>
+<ul>
+  {% for post in posts %}
+    <li class="post">
+      <a href="{% url 'blog:detail' post.id %}">
+        {{ post.title }}
+      </a>
+      <p>
+        {{ post.content|slice:":1000"}}
+      </p>
+      <p>publié le : {{post.pub_date|date:"Y-m-d"}}</p>
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

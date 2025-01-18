@@ -1,0 +1,13 @@
+<h1>Login</h1>
+
+<form action="/users/login/" method="post">
+  {% csrf_token %}
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" name="username" placeholder="abcdefg@example.com" />
+    <label for="password">mot de passe :</label>
+    <input type="password" name="password" />
+  </div>
+
+  <input type="submit" value="Login" />
+</form>
