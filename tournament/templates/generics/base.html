@@ -17,6 +17,16 @@
             <li><a href="#">Profil</a></li>
             <li><a href="/admin">Admin</a></li>
           </ul>
+          {%if user.is_authenticated %}
+            <p>Bonjour {{user.username}} !</p>
+            <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit">Log Out</button>
+            </form>
+          {% else %}
+            <p>vous n'êtes pas connecté </p>
+            <a href="{% url 'login' %}">Log In </a>
+          {% endif %}
         </nav>
     </div>
     

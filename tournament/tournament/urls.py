@@ -17,12 +17,16 @@ Including another URLconf
 from django import urls
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic.base import TemplateView
 
 urlpatterns = [
     #path('users/', include('users.urls')),
     #path('users/', include('django.contrib.auth.urls')),
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('users.urls')),
+    path("",TemplateView.as_view(template_name="home.html"), name="home"),
 ]
 
 admin.site.site_header = 'TournamentSaas Administration'

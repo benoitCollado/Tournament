@@ -1,0 +1,15 @@
+{% extends 'generics/base.html' %}
+
+{% block content %}
+<h2>Home</h2>
+{% if user.is_authenticated %}
+  <div>
+    <p>Bonjour {{user.username}}</p>
+  </div>
+{% else %}
+  <div>
+    <p>vous n'êtes pas connecté </p>
+    <a href="{% url 'login' %}">Log In </a>
+  </div>
+{% endif %}
+{% endblock %}
